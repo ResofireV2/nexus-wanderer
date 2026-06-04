@@ -16,18 +16,24 @@
   border-bottom: none !important;
 }
 
-/* Icon buttons in the topbar get fully circular treatment with
-   a transition matching the pressed-button feel below. */
+/* Icon buttons get the same press-depth treatment as primary/ghost
+   buttons — a bottom shadow making them read as physical keycaps.
+   On hover they lift; on active they press down and the shadow
+   collapses, matching the behaviour of all other 3D elements. */
 .icon-btn {
+  box-shadow: 0 4px 0 0 var(--b2);
   transition: background 0.15s, transform 0.1s, box-shadow 0.1s !important;
+  transform: translateY(0);
 }
 
 .icon-btn:hover {
   transform: translateY(-1px);
+  box-shadow: 0 5px 0 0 var(--b2);
 }
 
 .icon-btn:active {
-  transform: translateY(1px);
+  transform: translateY(3px) !important;
+  box-shadow: none !important;
 }
 
 
