@@ -1,0 +1,74 @@
+.sidebar-wrapper {
+  --d-sidebar-link-icon-color: #{$mud};
+  --d-sidebar-link-badge-color: #{$sky};
+  // example: chat participant count
+  --d-sidebar-prefix-background: #{$sky};
+  --d-sidebar-prefix-color: #{$sand};
+
+  // example: unread dot
+  --d-sidebar-suffix-color: #{$sky};
+
+  // highlight applies to both hover and focus states
+  --d-sidebar-highlight-background: #{$sand};
+  --d-sidebar-highlight-prefix-background: #{$sky};
+  --d-sidebar-highlight-prefix-color: #{$sand};
+  --d-sidebar-highlight-suffix-color: #{$sky};
+
+  --d-sidebar-active-background: #{$wet_sand};
+  --d-sidebar-active-color: var(--d-sidebar-link-color);
+  --d-sidebar-active-icon-color: var(--d-sidebar-link-color);
+  --d-sidebar-active-prefix-background: #{$sky};
+  --d-sidebar-active-suffix-color: #{$sky};
+}
+
+.sidebar-section-wrapper {
+  border-color: #{$wet_sand};
+}
+
+.header-sidebar-toggle button {
+  border-radius: 100px;
+  padding: 0.5em;
+
+  .d-icon {
+    color: var(--secondary);
+  }
+
+  &:focus,
+  &:hover {
+    .d-icon {
+      color: var(--primary-medium) !important;
+    }
+  }
+}
+
+.sidebar-wrapper {
+  margin: 1.5em 0 1.5em 10px;
+  background: transparent;
+  top: calc(var(--header-offset) + 1.5em);
+  height: calc(
+    var(--composer-vh, var(--1dvh)) * 100 - var(--header-offset, 0px) - 5em
+  );
+
+  @include border-radius-large;
+
+  .has-sidebar-page & {
+    box-shadow: 0 4px 0 1px $mud;
+    border: 1px solid $mud;
+  }
+
+  .sidebar-container {
+    border: none;
+  }
+}
+
+.sidebar-footer-wrapper .sidebar-footer-container::before {
+  background: linear-gradient(
+    to bottom,
+    rgba(var(--secondary-low-rgb), 0),
+    rgba(var(--secondary-low-rgb), 1)
+  );
+}
+
+.sidebar-section-link-wrapper .sidebar-section-link {
+  border-radius: 10px;
+}
