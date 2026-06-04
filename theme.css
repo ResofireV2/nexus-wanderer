@@ -1,0 +1,307 @@
+/* ============================================================
+   Isabelle — Nexus Theme
+   Visual style: pill buttons with press depth, floating sidebar,
+   rounded topbar, aggressive corner rounding throughout.
+   All color values use CSS variables — fully compatible with
+   any admin color scheme.
+   ============================================================ */
+
+
+/* ── 1. TOPBAR ─────────────────────────────────────────────── */
+
+/* Round the bottom corners so the topbar reads as a floating
+   bar rather than a flush stripe across the page. */
+.topbar {
+  border-radius: 0 0 28px 28px;
+  border-bottom: none !important;
+}
+
+/* Icon buttons in the topbar get fully circular treatment with
+   a transition matching the pressed-button feel below. */
+.icon-btn {
+  transition: background 0.15s, transform 0.1s, box-shadow 0.1s !important;
+}
+
+.icon-btn:hover {
+  transform: translateY(-1px);
+}
+
+.icon-btn:active {
+  transform: translateY(1px);
+}
+
+
+/* ── 2. BUTTONS ─────────────────────────────────────────────── */
+
+/* Primary button — pill shape with a physical press-depth shadow.
+   The shadow uses color-mix to derive a darker shade of the accent
+   without hardcoding any color value. */
+.btn-primary {
+  border-radius: 24px !important;
+  box-shadow: 0 4px 0 0 color-mix(in srgb, var(--ac) 60%, black) !important;
+  transition: box-shadow 0.1s, transform 0.1s, opacity 0.1s !important;
+  transform: translateY(0);
+}
+
+.btn-primary:hover {
+  opacity: 1 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 0 0 color-mix(in srgb, var(--ac) 60%, black) !important;
+}
+
+.btn-primary:active {
+  transform: translateY(3px) !important;
+  box-shadow: none !important;
+}
+
+/* Ghost button — same pill + depth treatment, using border color
+   for the shadow so it reads as the same material as the button. */
+.btn-ghost {
+  border-radius: 24px !important;
+  box-shadow: 0 4px 0 0 var(--b2) !important;
+  transition: box-shadow 0.1s, transform 0.1s !important;
+  transform: translateY(0);
+}
+
+.btn-ghost:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 0 0 var(--b2) !important;
+}
+
+.btn-ghost:active {
+  transform: translateY(3px) !important;
+  box-shadow: none !important;
+}
+
+/* Write button — already pill-shaped in Nexus core, just add depth. */
+.write-btn {
+  box-shadow: 0 4px 0 0 color-mix(in srgb, var(--ac) 60%, black) !important;
+  transition: box-shadow 0.1s, transform 0.1s, opacity 0.1s !important;
+  transform: translateY(0);
+}
+
+.write-btn:hover {
+  opacity: 1 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 0 0 color-mix(in srgb, var(--ac) 60%, black) !important;
+}
+
+.write-btn:active {
+  transform: translateY(3px) !important;
+  box-shadow: none !important;
+}
+
+/* Composer type selector — subtler pill, no depth shadow */
+.comp-type-btn {
+  border-radius: 20px !important;
+}
+
+
+/* ── 3. SIDEBAR ─────────────────────────────────────────────── */
+
+/* Float the sidebar as a rounded card with margin and shadow,
+   so it reads as a contained panel rather than a flush column.
+   Overflow hidden ensures content respects the rounded corners. */
+.sidebar {
+  height: calc(100vh - 24px) !important;
+  margin: 12px 0 12px 10px !important;
+  border-radius: 20px !important;
+  border-right: none !important;
+  border: 0.5px solid var(--b2) !important;
+  box-shadow: 0 4px 0 0 var(--b2) !important;
+  overflow: hidden !important;
+}
+
+/* The sidebar scroll container needs matching bottom radius so
+   content doesn't bleed past the card corners. */
+.sb-scroll {
+  border-radius: 0 0 20px 20px;
+}
+
+/* Round the user footer area to follow the card shape. */
+.sb-user {
+  border-radius: 0 0 20px 20px;
+}
+
+/* Nav items get rounded corners on hover and active states,
+   replacing the flush full-width highlight with a pill. */
+.sb-item {
+  border-radius: 10px;
+  margin: 0 8px;
+  padding: 10px 10px !important;
+  width: auto !important;
+}
+
+.sb-item.active::before {
+  left: -8px !important;
+  border-radius: 0 2px 2px 0;
+}
+
+.sb-sub-item {
+  border-radius: 10px;
+  margin: 0 8px;
+  padding: 6px 10px 6px 34px !important;
+}
+
+.sb-sub-item.active::before {
+  left: -8px !important;
+}
+
+/* sb-item-inner is used for collapsible sections — same treatment */
+.sb-item-inner {
+  border-radius: 10px;
+  padding: 10px 10px !important;
+}
+
+/* Dividers should respect the card width */
+.sb-divider {
+  margin: 8px 16px;
+}
+
+
+/* ── 4. COMPOSER ────────────────────────────────────────────── */
+
+/* The reply composer (desk-composer > reply-box) gets a more
+   prominent card treatment — rounded corners and a visible border. */
+.reply-box {
+  border-radius: 16px !important;
+  border: 0.5px solid var(--b2) !important;
+  box-shadow: 0 4px 0 0 var(--b2);
+}
+
+/* Toolbar at the top of the reply box rounds its top corners
+   to follow the card shape. */
+.comp-toolbar {
+  border-radius: 12px 12px 0 0;
+}
+
+/* Title input in the full compose view gets a border radius
+   rather than the default bottom-border-only treatment. */
+.comp-title-input {
+  border: 0.5px solid var(--b1) !important;
+  border-radius: 10px !important;
+  padding: 12px 14px !important;
+  margin-bottom: 12px;
+}
+
+/* Body area already has border-radius in core; nudge it to match. */
+.comp-body-area {
+  border-radius: 12px !important;
+  border: 0.5px solid var(--b1);
+}
+
+/* Textarea inside the reply box */
+.reply-box-ta {
+  border-radius: 12px 12px 0 0;
+}
+
+/* Composer toolbar buttons — rounder */
+.comp-tb-btn {
+  border-radius: 8px !important;
+}
+
+
+/* ── 5. REPLY ITEMS ─────────────────────────────────────────── */
+
+/* Individual reply items get a card-like bordered treatment
+   with rounded corners so each reply reads as a distinct unit. */
+.reply-item {
+  border-radius: 12px;
+  border: 0.5px solid var(--b1) !important;
+  padding: 14px 16px !important;
+  margin-bottom: 8px;
+  border-bottom: 0.5px solid var(--b1) !important;
+  background: var(--s1);
+}
+
+/* p-reply-card is the profile page reply list variant */
+.p-reply-card {
+  border-radius: 12px;
+  border: 0.5px solid var(--b1) !important;
+  padding: 14px 16px !important;
+  margin-bottom: 8px;
+}
+
+
+/* ── 6. DROPDOWNS & FLOATING PANELS ────────────────────────── */
+
+/* User avatar dropdown */
+.av-dd {
+  border-radius: 20px !important;
+}
+
+.av-dd-hdr {
+  border-radius: 20px 20px 0 0;
+}
+
+.av-dd-item {
+  border-radius: 10px !important;
+}
+
+/* Composer type dropdown */
+.comp-dd {
+  border-radius: 16px !important;
+}
+
+.comp-dd-item {
+  border-radius: 10px !important;
+}
+
+/* Topbar search dropdown */
+.tb-search-drop {
+  border-radius: 16px !important;
+}
+
+.tb-search-item {
+  border-radius: 8px;
+}
+
+/* Slash command menu */
+.slash-menu {
+  border-radius: 16px !important;
+  overflow: hidden !important;
+}
+
+/* Mobile settings tab dropdown */
+.stm-menu {
+  border-bottom-left-radius: 16px !important;
+  border-bottom-right-radius: 16px !important;
+}
+
+/* Mobile admin tab dropdown */
+.atm-menu {
+  border-bottom-left-radius: 16px !important;
+  border-bottom-right-radius: 16px !important;
+}
+
+/* Emoji picker sheet */
+.emoji-picker-sheet {
+  border-radius: 24px 24px 0 0 !important;
+}
+
+
+/* ── 7. USER CARD ───────────────────────────────────────────── */
+
+/* Give the user hover card a physical depth shadow to match the
+   pressed-button aesthetic — it reads as a card lifted off the page. */
+.ucard {
+  border-radius: 20px !important;
+  box-shadow: 0 4px 0 0 var(--b2), 0 8px 40px rgba(0, 0, 0, 0.4) !important;
+}
+
+.ucard-cover {
+  border-radius: 20px 20px 0 0;
+}
+
+.ucard-stat {
+  border-radius: 10px !important;
+}
+
+
+/* ── 8. AUTH CARD ───────────────────────────────────────────── */
+
+/* Login/register card gets the same floating card treatment. */
+.auth-card {
+  border-radius: 24px !important;
+  box-shadow: 0 4px 0 0 var(--b2) !important;
+}

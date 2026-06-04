@@ -1,0 +1,10 @@
+{
+  "manifest_version": 1,
+  "name": "Isabelle",
+  "slug": "isabelle",
+  "version": "1.0.0",
+  "author": "ResofireV2",
+  "description": "A warm, tactile theme with pill buttons, floating panels, and aggressive rounding. Inspired by the Discourse Isabelle theme.",
+  "homepage": "https://github.com/ResofireV2/nexus-theme-isabelle",
+  "categories": ["rounded", "tactile", "warm"]
+}
