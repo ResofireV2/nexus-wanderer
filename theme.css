@@ -305,3 +305,63 @@
   border-radius: 24px !important;
   box-shadow: 0 4px 0 0 var(--b2) !important;
 }
+
+
+/* ── 9. RIGHT SIDEBAR WIDGETS ───────────────────────────────── */
+
+/* Widgets rest at the same depth as the page by default.
+   The shadow gives them the same physical presence as buttons
+   and the sidebar card — consistent material language. */
+.rw {
+  border-radius: 16px !important;
+  border: 0.5px solid var(--b2) !important;
+  box-shadow: 0 4px 0 0 var(--b2);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+/* On hover the widget lifts slightly — the shadow grows to match,
+   reinforcing that it is a physical object rising off the surface. */
+.rw:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 0 var(--b2);
+}
+
+
+/* ── 10. FEED THREAD ROWS ───────────────────────────────────── */
+
+/* Thread rows get a subtle lift on hover. We cannot override the
+   background (set inline in JSX) so the effect is entirely through
+   transform + border-radius + a tight inset shadow that frames the
+   row without bleeding outside the scroll container.
+   The border-bottom is suppressed and replaced by margin so rows
+   don't visually collapse into each other when lifted. */
+.thread {
+  border-radius: 12px;
+  border-bottom: none !important;
+  margin: 0 8px 4px;
+  transition: transform 0.15s, box-shadow 0.15s, background 0.1s !important;
+  box-shadow: 0 2px 0 0 var(--b1);
+}
+
+.thread:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 0 0 var(--b2);
+}
+
+/* Suppress the light-mode hover background override from core —
+   the lift is the hover signal, not a background tint. */
+[data-theme="light"] .thread:hover {
+  background: inherit;
+}
+
+/* Active accent stripe needs to account for the margin on the row */
+.thread-accent {
+  border-radius: 0 2px 2px 0;
+  margin-left: -1px;
+}
+
+/* The save button left position was relative to the flush edge —
+   adjust for the 8px margin so it stays visually anchored. */
+.thread-save-btn {
+  left: 4px !important;
+}
