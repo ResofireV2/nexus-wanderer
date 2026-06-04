@@ -129,13 +129,37 @@
   border-radius: 0 0 20px 20px;
 }
 
-/* Nav items get rounded corners on hover and active states,
-   replacing the flush full-width highlight with a pill. */
+/* Nav items get rounded corners and a border-bottom depth shadow.
+   Because the sidebar card has overflow:hidden, an external
+   box-shadow would be clipped — border-bottom achieves the same
+   keycap effect entirely within the element's own box.
+   Padding-bottom is reduced by 3px to compensate for the border
+   so items don't grow taller than their resting state. */
 .sb-item {
   border-radius: 10px;
   margin: 0 8px;
-  padding: 10px 10px !important;
+  padding: 10px 10px 7px !important;
   width: auto !important;
+  border-bottom: 3px solid var(--b2);
+  transition: background 0.1s, transform 0.1s, border-bottom-width 0.1s, padding-bottom 0.1s !important;
+}
+
+/* On hover the item lifts 1px — the border stays, reinforcing depth. */
+.sb-item:hover {
+  transform: translateY(-1px);
+}
+
+/* On active/click: shift down 2px, collapse the border — pressed in. */
+.sb-item:active {
+  transform: translateY(2px) !important;
+  border-bottom-width: 1px !important;
+  padding-bottom: 9px !important;
+}
+
+/* Active state keeps the border but uses the accent color so it
+   reads as a selected-and-raised keycap rather than a plain border. */
+.sb-item.active {
+  border-bottom-color: var(--ac-border);
 }
 
 .sb-item.active::before {
@@ -143,20 +167,49 @@
   border-radius: 0 2px 2px 0;
 }
 
+/* Sub-items — same treatment, slightly smaller vertical rhythm */
 .sb-sub-item {
   border-radius: 10px;
   margin: 0 8px;
-  padding: 6px 10px 6px 34px !important;
+  padding: 6px 10px 3px 34px !important;
+  border-bottom: 3px solid var(--b2);
+  transition: background 0.1s, transform 0.1s, border-bottom-width 0.1s, padding-bottom 0.1s !important;
+}
+
+.sb-sub-item:hover {
+  transform: translateY(-1px);
+}
+
+.sb-sub-item:active {
+  transform: translateY(2px) !important;
+  border-bottom-width: 1px !important;
+  padding-bottom: 5px !important;
+}
+
+.sb-sub-item.active {
+  border-bottom-color: var(--ac-border);
 }
 
 .sb-sub-item.active::before {
   left: -8px !important;
 }
 
-/* sb-item-inner is used for collapsible sections — same treatment */
+/* sb-item-inner is used for collapsible parent rows — same depth,
+   no accent border since it's not a navigation destination itself. */
 .sb-item-inner {
   border-radius: 10px;
-  padding: 10px 10px !important;
+  padding: 10px 10px 7px !important;
+  border-bottom: 3px solid var(--b2);
+  transition: background 0.1s, transform 0.1s, border-bottom-width 0.1s !important;
+}
+
+.sb-item-inner:hover {
+  transform: translateY(-1px);
+}
+
+.sb-item-inner:active {
+  transform: translateY(2px) !important;
+  border-bottom-width: 1px !important;
 }
 
 /* Dividers should respect the card width */
