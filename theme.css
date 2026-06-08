@@ -424,3 +424,199 @@
 .thread-save-btn {
   left: 4px !important;
 }
+
+
+/* ── 11. SORT / FILTER PILLS ────────────────────────────────── */
+
+/* The feed sort pills (Latest, Rising, Top) and following tabs
+   get the full press treatment. Active state uses the accent
+   border-bottom so selected reads as a raised keycap in the
+   accent color — same language as active sidebar items. */
+.sort-pill {
+  border-bottom: 4px solid transparent;
+  padding: 4px 11px 1px !important;
+  border-radius: 20px !important;
+  box-shadow: none;
+  transition: all 0.1s, transform 0.1s, border-bottom-color 0.1s !important;
+}
+
+.sort-pill:hover:not(.active) {
+  transform: translateY(-1px);
+  border-bottom-color: var(--b2) !important;
+  border-color: var(--b2) !important;
+}
+
+.sort-pill:active {
+  transform: translateY(3px) !important;
+  border-bottom-color: transparent !important;
+}
+
+.sort-pill.active {
+  border-bottom-color: var(--ac) !important;
+  padding-bottom: 1px !important;
+}
+
+
+/* ── 12. TAGS ───────────────────────────────────────────────── */
+
+/* Thread tags become physical chips. The border-bottom depth
+   collapses on active just like buttons — pressing a tag to
+   filter feels tactile rather than flat. */
+.thread-tag {
+  border-bottom: 4px solid var(--b2);
+  padding: 2px 7px 0px !important;
+  cursor: pointer;
+  transition: transform 0.1s, border-bottom-width 0.1s, border-bottom-color 0.1s !important;
+}
+
+.thread-tag:hover {
+  transform: translateY(-1px);
+  border-bottom-color: var(--ac-border);
+}
+
+.thread-tag:active {
+  transform: translateY(3px) !important;
+  border-bottom-width: 1px !important;
+}
+
+
+/* ── 13. REACTION BUTTONS ───────────────────────────────────── */
+
+/* The add-reaction trigger button gets the depth shadow.
+   It's pill-shaped so border-bottom works cleanly. */
+.rx-trigger {
+  border-bottom: 4px solid transparent !important;
+  padding: 5px 10px 2px !important;
+  transition: all 0.1s, transform 0.1s !important;
+}
+
+.rx-trigger:hover {
+  transform: translateY(-1px);
+  border-bottom-color: var(--b2) !important;
+}
+
+.rx-trigger:active {
+  transform: translateY(3px) !important;
+  border-bottom-color: transparent !important;
+}
+
+/* Reacted state — depth uses accent border so it reads as a
+   selected raised chip. */
+.rx-trigger.reacted {
+  border-bottom-color: var(--ac-border) !important;
+}
+
+.rx-trigger.reacted:hover {
+  border-bottom-color: var(--ac) !important;
+}
+
+/* Reaction pills (existing reactions with counts) get the same
+   treatment — clicking one toggles it so the press should feel real. */
+.rx-pill {
+  border-bottom: 4px solid var(--b1) !important;
+  padding: 3px 10px 0px !important;
+  transition: all 0.1s, transform 0.1s !important;
+}
+
+.rx-pill:hover {
+  transform: translateY(-1px);
+  border-bottom-color: var(--b2) !important;
+}
+
+.rx-pill:active {
+  transform: translateY(3px) !important;
+  border-bottom-width: 1px !important;
+}
+
+.rx-pill.mine {
+  border-bottom-color: var(--ac-border) !important;
+}
+
+/* Emoji picker buttons get a subtle depth on hover — they scale
+   in core so we add a complementary downward press on active. */
+.rx-pick-btn {
+  border-radius: 10px !important;
+  transition: transform 0.1s, background 0.1s, border-color 0.1s !important;
+}
+
+.rx-pick-btn:active {
+  transform: scale(0.9) translateY(2px) !important;
+}
+
+
+/* ── 14. NOTIFICATION ITEMS ─────────────────────────────────── */
+
+/* Notification rows get the same card lift as feed threads —
+   border-bottom replaced with margin gap, rounded corners,
+   and a resting depth shadow. */
+.notif-item {
+  border-radius: 12px;
+  border-bottom: none !important;
+  margin: 0 8px 4px;
+  box-shadow: 0 2px 0 0 var(--b1);
+  transition: transform 0.15s, box-shadow 0.15s, background 0.1s !important;
+}
+
+.notif-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 0 0 var(--b2);
+}
+
+[data-theme="light"] .notif-item:hover {
+  background: inherit;
+}
+
+
+/* ── 15. DM CONVERSATION LIST ROWS ──────────────────────────── */
+
+/* DM thread rows mirror the notification item treatment. */
+.thread-row {
+  border-radius: 12px;
+  border-bottom: none !important;
+  margin: 0 8px 4px;
+  box-shadow: 0 2px 0 0 var(--b1);
+  transition: transform 0.15s, box-shadow 0.15s, background 0.1s !important;
+}
+
+.thread-row:hover,
+.thread-row.active {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 0 0 var(--b2);
+}
+
+[data-theme="light"] .thread-row:hover,
+[data-theme="light"] .thread-row.active {
+  background: inherit;
+}
+
+
+/* ── 16. SETTINGS TOGGLE ROWS ───────────────────────────────── */
+
+/* Toggle rows in settings become cards with the depth treatment
+   so the toggle feels like a physical switch sitting on a raised
+   surface. The card collapses on click to simulate pressing it. */
+.toggle-row {
+  border-radius: 12px;
+  border-bottom: none !important;
+  padding: 12px 14px 8px !important;
+  margin-bottom: 6px;
+  border: 0.5px solid var(--b1);
+  border-bottom: 4px solid var(--b2) !important;
+  background: var(--s1);
+  transition: transform 0.1s, border-bottom-width 0.1s !important;
+  cursor: pointer;
+}
+
+.toggle-row:last-child {
+  border-bottom: 4px solid var(--b2) !important;
+  margin-bottom: 0;
+}
+
+.toggle-row:hover {
+  transform: translateY(-1px);
+}
+
+.toggle-row:active {
+  transform: translateY(3px) !important;
+  border-bottom-width: 1px !important;
+}

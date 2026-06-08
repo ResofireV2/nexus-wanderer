@@ -1,10 +1,10 @@
 {
   "manifest_version": 1,
-  "name": "Isabelle",
-  "slug": "isabelle",
+  "name": "Wanderer",
+  "slug": "wanderer",
   "version": "1.0.0",
   "author": "ResofireV2",
-  "description": "A warm, tactile theme with pill buttons, floating panels, and aggressive rounding. Inspired by the Discourse Isabelle theme.",
-  "homepage": "https://github.com/ResofireV2/nexus-theme-isabelle",
-  "categories": ["rounded", "tactile", "warm"]
+  "description": "A tactile theme with pill buttons, floating panels, and aggressive rounding. Every interactive element has physical depth.",
+  "homepage": "https://github.com/ResofireV2/nexus-theme-wanderer",
+  "categories": ["rounded", "tactile"]
 }
