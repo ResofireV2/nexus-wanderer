@@ -6,5 +6,10 @@
   "author": "ResofireV2",
   "description": "A tactile theme with pill buttons, floating panels, and aggressive rounding. Every interactive element has physical depth.",
   "homepage": "https://github.com/ResofireV2/nexus-theme-wanderer",
-  "categories": ["rounded", "tactile"]
+  "categories": [
+    "rounded",
+    "tactile"
+  ],
+  "logo_url": "https://raw.githubusercontent.com/ResofireV2/nexus-theme-wanderer/main/priv/static/logo.webp",
+  "banner_url": "https://raw.githubusercontent.com/ResofireV2/nexus-theme-wanderer/main/priv/static/banner.webp"
 }
